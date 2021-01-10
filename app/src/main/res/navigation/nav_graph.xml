@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/artFragment">
+
+    <fragment
+        android:id="@+id/artFragment"
+        android:name="com.atilsamancioglu.artbookhilttesting.view.ArtFragment"
+        android:label="ArtFragment"
+        >
+        <action
+            android:id="@+id/action_artFragment_to_artDetailsFragment"
+            app:destination="@id/artDetailsFragment"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/artDetailsFragment"
+        android:name="com.atilsamancioglu.artbookhilttesting.view.ArtDetailsFragment"
+        android:label="ArtDetailsFragment">
+        <action
+            android:id="@+id/action_artDetailsFragment_to_imageApiFragment"
+            app:destination="@id/imageApiFragment" />
+        <action
+            android:id="@+id/action_artDetailsFragment_to_artFragment"
+            app:destination="@id/artFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageApiFragment"
+        android:name="com.atilsamancioglu.artbookhilttesting.view.ImageApiFragment"
+        android:label="ImageApiFragment" />
+</navigation>
