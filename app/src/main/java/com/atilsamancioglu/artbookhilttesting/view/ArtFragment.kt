@@ -19,8 +19,11 @@ import com.atilsamancioglu.artbookhilttesting.util.Status
 import com.atilsamancioglu.artbookhilttesting.viewmodel.ArtViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class ArtFragment @Inject constructor(
         val artRecyclerAdapter: ArtRecyclerAdapter
         ) : Fragment(R.layout.fragment_arts) {

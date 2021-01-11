@@ -22,6 +22,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class ImageApiFragment @Inject constructor(
         val imageRecyclerAdapter: ImageRecyclerAdapter
 ) : Fragment(R.layout.fragment_image_api) {

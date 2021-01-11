@@ -17,14 +17,13 @@ import com.bumptech.glide.RequestManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class ArtDetailsFragment @Inject constructor(
         val glide : RequestManager
 ) : Fragment(R.layout.fragment_art_details) {
     lateinit var viewModel : ArtViewModel
 
     private var fragmentBinding : FragmentArtDetailsBinding? = null
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
