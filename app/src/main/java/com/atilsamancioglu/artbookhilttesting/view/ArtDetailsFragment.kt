@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class ArtDetailsFragment @Inject constructor(
-        val glide : RequestManager
+    val glide : RequestManager
 ) : Fragment(R.layout.fragment_art_details) {
     lateinit var viewModel : ArtViewModel
 
@@ -52,8 +52,8 @@ class ArtDetailsFragment @Inject constructor(
 
         binding.saveButton.setOnClickListener {
             viewModel.makeArt(binding.nameText.text.toString(),
-                    binding.artistText.text.toString(),
-                    binding.yearText.text.toString())
+                binding.artistText.text.toString(),
+                binding.yearText.text.toString())
 
         }
 
@@ -66,20 +66,22 @@ class ArtDetailsFragment @Inject constructor(
             }
         })
 
-        viewModel.insertArtMessage.observe(viewLifecycleOwner, Observer {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Toast.makeText(requireActivity(),"Success",Toast.LENGTH_LONG).show()
-                    findNavController().navigateUp()
-                    viewModel.resetInsertArtMsg()
-                }
+        viewModel.insertArtMessage.observe(viewLifecycleOwner, Observer {event->
+            event.contentIfNotHandled?.let {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        Toast.makeText(requireActivity(),"Success",Toast.LENGTH_LONG).show()
+                        findNavController().navigateUp()
+                        viewModel.resetInsertArtMsg()
+                    }
 
-                Status.ERROR -> {
-                    Toast.makeText(requireContext(),it.message ?: "Error",Toast.LENGTH_LONG).show()
-                }
+                    Status.ERROR -> {
+                        Toast.makeText(requireContext(),it.message ?: "Error",Toast.LENGTH_LONG).show()
+                    }
 
-                Status.LOADING -> {
+                    Status.LOADING -> {
 
+                    }
                 }
             }
         })
