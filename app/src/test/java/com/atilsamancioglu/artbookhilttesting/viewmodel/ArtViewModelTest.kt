@@ -17,8 +17,11 @@ class ArtViewModelTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
+    /*
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
+
+     */
 
     private lateinit var viewModel : ArtViewModel
 
