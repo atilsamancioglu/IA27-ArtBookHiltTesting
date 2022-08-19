@@ -29,12 +29,14 @@ class ImageApiFragment @Inject constructor(
         val imageRecyclerAdapter: ImageRecyclerAdapter
 ) : Fragment(R.layout.fragment_image_api) {
 
-    private val viewModel: ArtViewModel by activityViewModels()
+    //private val viewModel: ArtViewModel by activityViewModels()
+    lateinit var viewModel : ArtViewModel
 
     private var fragmentBinding : FragmentImageApiBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
 
         val binding = FragmentImageApiBinding.bind(view)
         fragmentBinding = binding

@@ -31,7 +31,8 @@ class ArtFragment @Inject constructor(
         ) : Fragment(R.layout.fragment_arts) {
 
     //private val viewModel: ArtViewModel by viewModels()
-    private val viewModel: ArtViewModel by activityViewModels()
+    //private val viewModel: ArtViewModel by activityViewModels()
+    lateinit var viewModel : ArtViewModel
 
     private var fragmentBinding : FragmentArtsBinding? = null
     private val swipeCallBack = object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
@@ -51,6 +52,7 @@ class ArtFragment @Inject constructor(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
 
         val binding = FragmentArtsBinding.bind(view)
         fragmentBinding = binding

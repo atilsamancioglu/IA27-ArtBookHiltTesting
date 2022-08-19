@@ -22,6 +22,7 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -69,7 +70,7 @@ class ArtDaoTest {
 
 
     @Test
-    fun insertArtTesting() = runBlockingTest {
+    fun insertArtTesting() = runTest {
         val exampleArt = Art("Mona Lisa","Da Vinci",1700,"test.com",1)
         dao.insertArt(exampleArt)
 
@@ -79,7 +80,7 @@ class ArtDaoTest {
     }
 
     @Test
-    fun deleteArtTesting() = runBlockingTest {
+    fun deleteArtTesting() = runTest {
         val exampleArt = Art("Mona Lisa","Da Vinci",1700,"test.com",1)
         dao.insertArt(exampleArt)
         dao.deleteArt(exampleArt)

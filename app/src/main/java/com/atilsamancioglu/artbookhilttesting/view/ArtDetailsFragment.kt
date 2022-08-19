@@ -24,13 +24,14 @@ class ArtDetailsFragment @Inject constructor(
         val glide : RequestManager
 ) : Fragment(R.layout.fragment_art_details) {
 
-    private val viewModel: ArtViewModel by activityViewModels()
-
-
+    //private val viewModel: ArtViewModel by activityViewModels()
+    lateinit var viewModel : ArtViewModel
+    
     private var fragmentBinding : FragmentArtDetailsBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
 
         val binding = FragmentArtDetailsBinding.bind(view)
         fragmentBinding = binding
