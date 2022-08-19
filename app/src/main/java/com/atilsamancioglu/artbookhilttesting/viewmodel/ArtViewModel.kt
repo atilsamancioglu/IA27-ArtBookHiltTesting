@@ -1,6 +1,5 @@
 package com.atilsamancioglu.artbookhilttesting.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,11 +8,14 @@ import com.atilsamancioglu.artbookhilttesting.model.ImageResponse
 import com.atilsamancioglu.artbookhilttesting.repo.ArtRepositoryInterface
 import com.atilsamancioglu.artbookhilttesting.roomdb.Art
 import com.atilsamancioglu.artbookhilttesting.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.selects.whileSelect
 import java.lang.Exception
+import javax.inject.Inject
 
-class ArtViewModel @ViewModelInject constructor(
+@HiltViewModel
+class ArtViewModel @Inject constructor(
         private val repository : ArtRepositoryInterface
 ) : ViewModel() {
 

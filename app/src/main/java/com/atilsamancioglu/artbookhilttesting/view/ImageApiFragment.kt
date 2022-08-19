@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -27,14 +29,12 @@ class ImageApiFragment @Inject constructor(
         val imageRecyclerAdapter: ImageRecyclerAdapter
 ) : Fragment(R.layout.fragment_image_api) {
 
-    lateinit var viewModel : ArtViewModel
+    private val viewModel: ArtViewModel by activityViewModels()
 
     private var fragmentBinding : FragmentImageApiBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
 
         val binding = FragmentImageApiBinding.bind(view)
         fragmentBinding = binding

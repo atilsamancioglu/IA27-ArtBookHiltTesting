@@ -3,25 +3,29 @@ package com.atilsamancioglu.artbookhilttesting.dependencyinjection
 import android.content.Context
 import androidx.room.Room
 import com.atilsamancioglu.artbookhilttesting.R
+import com.atilsamancioglu.artbookhilttesting.adapter.ArtRecyclerAdapter
+import com.atilsamancioglu.artbookhilttesting.adapter.ImageRecyclerAdapter
 import com.atilsamancioglu.artbookhilttesting.api.RetrofitAPI
 import com.atilsamancioglu.artbookhilttesting.repo.ArtRepository
 import com.atilsamancioglu.artbookhilttesting.repo.ArtRepositoryInterface
 import com.atilsamancioglu.artbookhilttesting.roomdb.ArtDao
 import com.atilsamancioglu.artbookhilttesting.roomdb.ArtDatabase
 import com.atilsamancioglu.artbookhilttesting.util.Util.BASE_URL
+import com.atilsamancioglu.artbookhilttesting.view.ArtFragmentFactory
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object AppModule {
 
     @Singleton
@@ -35,7 +39,6 @@ object AppModule {
     fun injectDao(
         database: ArtDatabase
     ) = database.artDao()
-
 
     @Singleton
     @Provides
