@@ -9,8 +9,10 @@ import com.atilsamancioglu.artbookhilttesting.repo.ArtRepositoryInterface
 import com.atilsamancioglu.artbookhilttesting.roomdb.Art
 import com.atilsamancioglu.artbookhilttesting.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.selects.whileSelect
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -43,11 +45,11 @@ class ArtViewModel @Inject constructor(
     }
 
     fun deleteArt(art: Art) = viewModelScope.launch {
-        repository.deleteArt(art)
+            repository.deleteArt(art)
     }
 
     fun insertArt(art: Art) = viewModelScope.launch {
-        repository.insertArt(art)
+            repository.insertArt(art)
     }
 
     fun makeArt(name : String, artistName : String, year : String) {
